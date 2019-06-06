@@ -33,21 +33,22 @@ public class ServerThread implements Runnable {
 
         try {
             String request = in.readLine();
-            System.out.println(request);
             message = gson.fromJson(request, Message.class);
+
+            System.out.println(message);
 
             if (!server.isRunning()) {
                 response = new Message("OVER");
             } else if (message.getCode().equals("START")) {
-                response = new Message(server.nextTask(), "START");
+                response = server.nextTask();
             } else if (message.getCode().equals("OVER")) {
                 server.finishTask(message.getTask());
-                response = new Message(server.nextTask(), "START");
+                response = server.nextTask();
             } else if (message.getCode().equals("FOUND")) {
                 if (server.found(message.getTask())) {
-                    response = new Message("CONGRATULATIONS", "GZ");
+                    response = new Message("GZ", "CONGRATULATIONS");
                 } else {
-                    response = new Message(server.nextTask(), "START");
+                    response = server.nextTask();
                 }
             } else {
                 response = new Message("ERROR");

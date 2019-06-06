@@ -1,5 +1,6 @@
 package server;
 
+import Utils.Message;
 import Utils.Util;
 
 import java.io.IOException;
@@ -45,13 +46,18 @@ public class Server implements Runnable {
         started.remove(task);
     }
 
-    public synchronized String nextTask() {
+    public synchronized Message nextTask() {
+        Message message = new Message();
         if (rework.size() > 0) {
-            return rework.remove(rework.size() -1);
+            message.setTask(rework.remove(rework.size() -1));
         } else {
             // TODO add task to started
-            return nextGuess();
+            message.setTask(nextGuess());
         }
+        message.setCode("START");
+        message.setCrypt(crypt);
+
+        return message;
     }
 
     private synchronized String nextGuess() {
@@ -95,6 +101,7 @@ public class Server implements Runnable {
     }
 
     public void run() {
+        System.out.println("Waiting for requests...");
         while(running) {
             try {
                 Socket socket = serverSocket.accept();

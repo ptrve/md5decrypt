@@ -25,6 +25,8 @@ public class Message {
         this(code, "", "");
     }
 
+    public Message() {};
+
     public void setTask(String task) {
         this.task = task;
     }
