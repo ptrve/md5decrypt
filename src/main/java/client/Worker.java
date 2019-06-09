@@ -1,9 +1,7 @@
 package client;
 
-import Utils.Util;
+import utils.Util;
 
-import java.io.*;
-import java.net.Socket;
 import java.util.Arrays;
 
 public class Worker {

@@ -1,6 +1,6 @@
 package server;
 
-import Utils.Message;
+import utils.Message;
 import com.google.gson.Gson;
 
 import java.io.*;

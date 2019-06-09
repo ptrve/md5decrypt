@@ -1,6 +1,6 @@
 package client;
 
-import Utils.Message;
+import utils.Message;
 import com.google.gson.Gson;
 
 import java.io.*;
@@ -43,7 +43,7 @@ public class Client implements Runnable {
 
                 String response = in.readLine();
                 message = gson.fromJson(response, Message.class);
-//                System.out.println("S: " + message);
+                System.out.println("S: " + message);
 
                 this.task = message.getTask();
                 this.crypt = message.getCrypt();

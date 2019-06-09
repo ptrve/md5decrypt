@@ -1,7 +1,7 @@
 package server;
 
-import Utils.Message;
-import Utils.Util;
+import utils.Message;
+import utils.Util;
 
 import java.io.IOException;
 import java.net.ServerSocket;
