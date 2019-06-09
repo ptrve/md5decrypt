@@ -102,7 +102,7 @@ public class Server implements Runnable {
 
     public void run() {
         System.out.println("Waiting for requests...");
-        while(running) {
+        while(true) {
             try {
                 Socket socket = serverSocket.accept();
                 ServerThread serverThread = new ServerThread(socket, this);

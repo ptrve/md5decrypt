@@ -57,6 +57,12 @@ public class Client implements Runnable {
             if (code.equals("START")) {
                 Worker worker = new Worker(task, crypt, this);
                 worker.bruteForce();
+            } else if (this.code.equals("GZ")) {
+                running = false;
+                System.out.println("FOUND " + this.task);
+            } else if (this.code.equals("OVER")) {
+                running = false;
+                System.out.println("Brute force is over...");
             }
 
 

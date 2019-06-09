@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class Worker {
 
     private Client client;
-    private int size = 3;
+    private int size = 4;
     private char[] currentGuess = new char[size];
 
     private boolean running = true;

@@ -15,7 +15,7 @@ public class ServerMain {
             System.out.print("Type your secret: ");
             secret = sc.next();
         } else {
-            secret = "meto";
+            secret = "ggfff";
         }
 
         Server server = new Server(secret);
